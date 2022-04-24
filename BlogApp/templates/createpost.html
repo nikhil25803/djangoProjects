@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} {{user.username}} Create Post {% endblock %}
+
+{% block content %}
+
+<div class="container py-2">
+    <div class="card">
+        <div class="card-header">
+          Hi {{user.username}}
+        </div>
+        <form action="" method="post">
+          {% csrf_token %}
+
+          {{form|crispy}}
+
+          <input type="submit" value="Submit" class="btn btn-success">
+        </form>
+      </div>
+</div>
+
+{% endblock %}

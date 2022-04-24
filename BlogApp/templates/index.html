@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Homepage {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row my-3">
+        <div class="col-12">
+            <h3 class="bg-primary text-white text-center p-2 rounded-pill">Welcome to Blogging App</h3>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="row my-2">
+        <div class="col-xl-8 col-lg-8 col-sm-12 border-end border-2 border-info ">
+            <h3 class=" text-dark rounded-pill text-center border-bottom border-2 border-info mb-2">Recent Posts</h3>
+            {% for post in posts reversed %}
+
+            <div class="card text-center mb-3">
+                <div class="card-header">
+                  <h5 class="text-start">By {{ post.name }}</h5>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{ post.title }}</h5>
+                  <p class="card-text">{{ post.text }}</p>
+                  <a href="https://twitter.com/{{post.twitter}}" class="btn btn-primary">Follow on Twitter</a>
+                </div>
+                <div class="card-footer text-muted">
+                  {{post.dop}}
+                </div>
+              </div>
+
+            {% endfor %}
+        </div>
+        <div class="col-xl-4 col-lg-4 col-sm-12">
+            <h3 class=" text-dark rounded-pill text-center border-bottom border-2 border-info">Recent Users</h3>
+            
+              
+              <div class="card" style="width: 18rem;">
+                
+                <ul class="list-group list-group-flush">
+                  {% for user in users %}
+                  <li class="list-group-item">{{user.username}}</li>
+                  {% endfor %}
+                  
+                </ul>
+                
+              </div>
+              
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}
