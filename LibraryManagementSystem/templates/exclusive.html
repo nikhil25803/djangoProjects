@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Exclusive Books {% endblock %}</title>
+</head>
+
+<body>
+    {% include 'nav.html' %}
+
+    {% block content %}
+
+    <div class="container">
+        <h3 class="bg-dark rounded-pill text-center text-white mt-1" style="width: auto;">Exclusive Book Collection</h3>
+    </div>
+
+    {% for book in books %}
+    <div class="container p-1">
+        <div class="row my-3">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{book.title}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Written by {{book.author}}</h6>
+                        <p class="card-text">Published in the year {{book.year}} at {{book.country}}. <br> Having
+                            {{book.pages}} number of pages and written in the language {{book.language}}</p>
+                        <a href="{{book.link}}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <hr>
+
+    {% endblock %}
+
+
+    {% include 'footer.html' %}
+</body>
+
+</html>

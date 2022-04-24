@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %} Librarian Dashboard {% endblock %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <h3 class="text-white bg-dark bg-primary-gradient rounded-pill mt-2 text-center">Welcome to Librarian Dashboard</h3>
+</div>
+
+<div class="container py-2">
+    <div class="card">
+        <div class="card-header">
+          Upload Book
+        </div>
+        <form action="" method="post">
+          {% csrf_token %}
+
+          {{form}}
+
+          <input type="submit" value="Submit" class="btn btn-success">
+        </form>
+      </div>
+</div>
+
+<hr>
+
+<div class="container">
+  <h3 class="bg-dark text-white text-center bg-dark-gradient rounded-pill">Book Requests</h3>
+  {% for request in requests %}
+  <div class="card text-center mt-2">
+    <div class="card-header">
+      By {{request.name}} | {{request.email}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Book Name : {{request.book}}</h5>
+      <p class="card-text">Written by : {{request.author}}</p>
+      <a href="{{request.book_link}}" class="btn btn-primary">More about the Book</a>
+    </div>
+    <div class="card-footer text-muted">
+      Requested on {{request.date}}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

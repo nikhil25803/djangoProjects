@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} Books {% endblock %}
+{% load static %}
+{% block content %}
+
+{% for book in books %}
+<div class="container">
+    <div class="row my-3">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{book.title}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Written by {{book.author}}</h6>
+              <p class="card-text">Published in the year {{book.year}} at {{book.country}}. <br> Having {{book.pages}} number of pages and written in the language {{book.language}}</p>
+              <a href="{{book.link}}" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+{% endfor %}
+
+{% endblock %}
