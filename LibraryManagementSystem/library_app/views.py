@@ -21,7 +21,7 @@ firebase = pyrebase.initialize_app(config)
 authe = firebase.auth()
 database = firebase.database()
 
-booksData = open('D:/Django Projects/LibraryManagementSystem/static/books.json').read()
+booksData = open('static/books.json').read()
 
 data = json.loads(booksData)
 
