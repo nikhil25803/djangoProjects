@@ -9,6 +9,7 @@ class QuesModel(models.Model):
     op3 = models.CharField(max_length=100)
     op4 = models.CharField(max_length=100)
     ans = models.CharField(max_length=100)
+    cans = models.CharField(max_length=500)
 
     def __str__(self):
         return self.question
